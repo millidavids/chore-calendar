@@ -1,3 +1,3 @@
 # Chore Calendar
 
-We need a good way to keep track of people's chore days in the office.
+I want a small application to track chore responsibilities in the office.
