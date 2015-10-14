@@ -1,0 +1,2 @@
+class ExemptionsController < ApplicationController
+end
