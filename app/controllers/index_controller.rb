@@ -3,5 +3,6 @@ class IndexController < ApplicationController
 
   # GET /
   def index
+    @calendar = Calendar.first || nil
   end
 end
