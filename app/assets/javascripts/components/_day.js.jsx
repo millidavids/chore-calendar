@@ -1,4 +1,3 @@
-/** @jsx React.DOM */
 var Day = React.createClass({
   render: function () {
     return (
