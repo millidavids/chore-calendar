@@ -24,7 +24,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 # React Rails
-gem 'react-rails', '~> 1.3.2'
+gem 'react-rails', '~> 1.3.3'
 
 # Responders
 gem 'responders', '~> 2.0'
