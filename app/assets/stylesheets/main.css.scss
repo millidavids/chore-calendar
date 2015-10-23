@@ -1,9 +1,43 @@
 html, body {
   width: 100%;
   height: 100%;
-  background-color: rgba(51,51,51,.3);
+  margin: 0px;
+  background-color: rgba(51,51,51,1);
 }
-.calendar {
+
+.calendar, .calendar-inner, .week {
   position: relative;
-  width: 100%
+  width: 100%;
+  height: 100%;
+}
+
+.weekday {
+  width: 20%;
+  height: 20%;
+  top: 0%;
+  float: left;
+}
+
+.monday {
+  background-color: red;
+}
+
+.tuesday {
+  background-color: green;
+}
+
+.wednesday {
+  background-color: blue;
+}
+
+.thursday {
+  background-color: yellow;
+}
+
+.friday {
+  background-color: white;
+}
+
+.weekend {
+  background-color: black;
 }
