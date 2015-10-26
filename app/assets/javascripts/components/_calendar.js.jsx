@@ -1,6 +1,6 @@
 var Calendar = React.createClass({
   getInitialState: function() {
-    return {initial_day: (() => {
+    return {day: (() => {
       switch (this.props.current_day) {
         case 0: return "weekend";
         case 1: return "monday";
@@ -13,12 +13,13 @@ var Calendar = React.createClass({
     })()};
   },
   render: function () {
+    var name = this.props.week[this.state.day]
     return (
       <div className="calendar-inner">
         <Week className="week" days={ this.props.week } />
-        <div className="present-day">
+        <div className={["present-day", [this.state.day, "color"].join("-")].join(" ")}>
           <div className="absolute-center">
-            { this.state.initial_day }
+            { name }
           </div>
         </div>
       </div>

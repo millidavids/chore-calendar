@@ -12,11 +12,11 @@ class IndexController < ApplicationController
   private
 
   def set_week
-    @week = {monday: 'monday',
-             tuesday: 'tuesday',
-             wednesday: 'wednesday',
-             thursday: 'thursday',
-             friday: 'friday'}
+    @week = {monday: 'David Yurek',
+             tuesday: 'Sarah Vessels',
+             wednesday: 'Chase Southard',
+             thursday: 'Dave Hempy',
+             friday: 'Tristan Basil'}
   end
 
   def set_current_day
