@@ -3,8 +3,10 @@ var Calendar = React.createClass({
     return (
       <div className="calendar-inner">
         <Week className="week" days={ this.props.days } />
-        <div className="presentDay">
-          // Takes up the rest of the page
+        <div className="present-day">
+          <div className="absolute-center">
+            David
+          </div>
         </div>
       </div>
     )
