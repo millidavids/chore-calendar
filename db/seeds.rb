@@ -1,3 +1,4 @@
+Calendar.create(date: Date.now, current_day_id: 1)
 Person.create(name: 'David Yurek')
 Person.create(name: 'Dave Hempy')
 Person.create(name: 'Chase Southard')
