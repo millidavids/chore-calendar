@@ -18,7 +18,7 @@ var Calendar = React.createClass({
       <div className="calendar-inner">
         <Week className="week" days={ this.props.week } />
         <div className={["present-day", [this.state.day, "color"].join("-")].join(" ")}>
-          <div className="absolute-center">
+          <div className="full-width-vertical-center">
             { name }
           </div>
         </div>
