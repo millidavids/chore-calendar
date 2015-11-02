@@ -1,9 +1,9 @@
 class IndexController < ApplicationController
   respond_to :html
 
-  before_action :set_week, only: [:index]
   before_action :set_current_day, only: [:index]
   before_action :set_calendar, only: [:index]
+  before_action :set_week, only: [:index]
 
   # GET /
   def index
@@ -13,15 +13,16 @@ class IndexController < ApplicationController
   private
 
   def set_calendar
-    @calendar = Calendar.first
+    @cal = Calendar.first
   end
 
   def set_week
-    @week = {monday: 'David Yurek',
-             tuesday: 'Sarah Vessels',
-             wednesday: 'Chase Southard',
-             thursday: 'Dave Hempy',
-             friday: 'Tristan Basil'}
+    monday_index = @cal.current_day_id + 1 - @current_day
+    @week = {monday: Person.find(@cal.person_order[monday_index]).name,
+             tuesday: Person.find(@cal.person_order[monday_index + 1]).name,
+             wednesday: Person.find(@cal.person_order[monday_index + 2]).name,
+             thursday: Person.find(@cal.person_order[monday_index + 3]).name,
+             friday: Person.find(@cal.person_order[monday_index + 4]).name}
   end
 
   def set_current_day
