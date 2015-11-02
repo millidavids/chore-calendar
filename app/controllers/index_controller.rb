@@ -3,6 +3,7 @@ class IndexController < ApplicationController
 
   before_action :set_week, only: [:index]
   before_action :set_current_day, only: [:index]
+  before_action :set_calendar, only: [:index]
 
   # GET /
   def index
@@ -10,6 +11,10 @@ class IndexController < ApplicationController
   end
 
   private
+
+  def set_calendar
+    @calendar = Calendar.first
+  end
 
   def set_week
     @week = {monday: 'David Yurek',
