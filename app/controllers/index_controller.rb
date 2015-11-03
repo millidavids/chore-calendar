@@ -14,6 +14,7 @@ class IndexController < ApplicationController
 
   def set_calendar
     @cal = Calendar.first
+    @cal.make_current
   end
 
   def set_week
