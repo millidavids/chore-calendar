@@ -27,6 +27,7 @@ var Calendar = React.createClass({
         </div>
       </div>
       <div className="managing">
+        // managing window
       </div>
     )
   }
