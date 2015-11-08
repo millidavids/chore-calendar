@@ -1,0 +1,1 @@
+var DaySwitcher = React.createClass({});
