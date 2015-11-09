@@ -1,1 +1,5 @@
-var DaySwitcher = React.createClass({});
+var DaySwitcher = React.createClass({
+  render: function() {
+    
+  }
+});
