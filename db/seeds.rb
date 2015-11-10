@@ -1,3 +1,4 @@
+puts 'Seeding people'
 Person.create(name: 'David Yurek')
 Person.create(name: 'Dave Hempy')
 Person.create(name: 'Chase Southard')
@@ -12,4 +13,5 @@ Person.create(name: 'Michael Huelsman')
 Person.create(name: 'Graham Hough')
 Person.create(name: 'Tristan Basil')
 Person.create(name: 'Erik Mudrak')
+puts 'Seeding calendar'
 Calendar.create(date: Date.today, current_day_id: 1, person_order: [*1..Person.all.count])
