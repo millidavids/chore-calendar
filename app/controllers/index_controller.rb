@@ -29,4 +29,8 @@ class IndexController < ApplicationController
   def set_current_day
     @current_day = Time.now.wday
   end
+
+  def person_list
+    @person_list = @cal.person_order.map { |i| Person.find(i).name }
+  end
 end
