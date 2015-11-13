@@ -7,7 +7,7 @@ class IndexController < ApplicationController
 
   # GET /
   def index
-    respond_with @week.to_json, @current_day
+    respond_with @week.to_json, @current_day, @person_list
   end
 
   private
@@ -31,6 +31,6 @@ class IndexController < ApplicationController
   end
 
   def person_list
-    @person_list = @cal.person_order.map { |i| Person.find(i).name }
+    @person_list = @cal.person_order.map { |i| [Person.find(i).name, i] }
   end
 end
