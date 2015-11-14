@@ -33,7 +33,7 @@ main {
 .calendar {
   position: relative;
   width: 100vw;
-  height: 200vh;
+  height: 100vh;
 }
 
 .calendar-inner {
@@ -92,7 +92,9 @@ main {
 }
 
 .managing {
-  position: relative;
+  position: absolute;
+  left: 100%;
+  top: 0;
   width: 100vw;
   height: 100vh;
 }
