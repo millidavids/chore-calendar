@@ -1,7 +1,7 @@
 var Calendar = React.createClass({
   getInitialState: function() {
     return {day: (() => {
-      switch (this.props.current_day) {
+      switch (this.props.currentDay) {
         case 0: return 'weekend';
         case 1: return 'monday';
         case 2: return 'tuesday';
@@ -38,6 +38,7 @@ var Calendar = React.createClass({
         <div className="managing">
           <DaySwitcher className="day-switcher" day={ this.state.day } people={ this.props.people} onPeopleSwitch={ this.setPerson }/>
         </div>
+        <Menu signOutUrl={ this.props.signOutUrl } />
       </div>
     );
   }
