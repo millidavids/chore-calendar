@@ -23,15 +23,16 @@ var Calendar = React.createClass({
 
   render: function () {
     var name = this.props.week[this.state.day];
+    var className = 'calendar ' + this.state.day + '-color';
     return (
-      <div className={["calendar", [this.state.day, "color"].join("-")].join(" ")}>
+      <div className={ className }>
         <div className="calendar-inner">
-          <Week className="week" days={ this.props.week } onSetDay={this.setDay}/>
+          <Week className="week" days={ this.props.week } onSetDay={ this.setDay }/>
           <ChoreList className="chore-list" day={ this.state.day }/>
           <CurrentDay day={ this.state.day } name={ name }/>
         </div>
         <div className="managing">
-          <DaySwitcher className="day-switcher" days={ this.props.week } onPeopleSwitch={this.setPerson}/>
+          <DaySwitcher className="day-switcher" days={ this.props.week } onPeopleSwitch={ this.setPerson }/>
         </div>
       </div>
     );
