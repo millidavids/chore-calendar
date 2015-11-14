@@ -24,9 +24,14 @@ html, body {
 }
 
 .week {
+  color: rgba(255, 255, 255, .3);
   position: relative;
   height: 20%;
   width: 100%;
+}
+
+.active-day {
+  color: rgba(255, 255, 255, .8);
 }
 
 .present-day {
@@ -96,16 +101,20 @@ html, body {
 
 .chore-list {
   position: absolute;
+  font-size: 4vh;
   left: 0;
   top: 20%;
-  width: 20%;
   height: 78vh;
+  width: 20%;
   z-index: 100;
   margin: 0px;
   margin-top: 2vh;
+  li {
+    padding-top: 2vh;
+  }
 }
 
 .special-task {
   color: red;
-  font-size: 30px;
+  font-size: 4vh;
 }
