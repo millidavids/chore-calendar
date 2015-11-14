@@ -6,7 +6,7 @@ var Week = React.createClass({
         {
           days.map(function(day) {
             return (
-              <Day key={ day } day={ day } onClick={ this.props.onSetDay }/>
+              <Day key={ day } day={ day } currentDay={ this.props.currentDay } onClick={ this.props.onSetDay }/>
             );
           }.bind(this))
         }

@@ -27,7 +27,7 @@ var Calendar = React.createClass({
     return (
       <div className={ className }>
         <div className="calendar-inner">
-          <Week className="week" days={ this.props.week } onSetDay={this.setDay}/>
+          <Week className="week" days={ this.props.week } currentDay={ this.state.day } onSetDay={this.setDay}/>
           {
             this.state.day === 'weekend' ? '' : (
               <ChoreList className="chore-list" day={ this.state.day }/>

@@ -1,12 +1,13 @@
 @import "_variables";
+@import url(https://fonts.googleapis.com/css?family=PT+Sans);
 
 html, body {
   width: 100%;
   height: 100%;
   margin: 0;
   font-size: 16px;
-  font-family: sans-serif;
-  font-weight: 700;
+  font-family: 'PT Sans', sans-serif;
+  font-weight: 500;
   color: rgba(255, 255, 255, .8);
 }
 
@@ -72,7 +73,7 @@ main {
   width: 100%;
 }
 
-.active-day {
+.active-text {
   color: rgba(255, 255, 255, .8);
 }
 
@@ -157,6 +158,6 @@ main {
 }
 
 .special-task {
-  color: red;
+  color: lighten(yellow, 30%);
   font-size: 4vh;
 }
