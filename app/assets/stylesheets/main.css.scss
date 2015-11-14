@@ -60,6 +60,15 @@ main {
   width: $person-width;
   font-size: 12vw;
   line-height: 12vw;
+
+  .switch-people-link {
+    position: absolute;
+    top: 50%;
+    font-size: 1rem;
+    line-height: 1rem;
+    height: 1rem;
+    transform: translate(0%, -50%);
+  }
 }
 
 .weekday {
@@ -94,7 +103,7 @@ main {
   position: absolute;
   width: 100%;
   top: 50%;
-  left: 0%;
+  left: 0;
   text-align: center;
   transform: translate(0%, -50%);
 }
@@ -296,6 +305,7 @@ main {
 
   .swap-person-list {
     display: inline-block;
+    margin-bottom: 0;
 
     a {
       color: $friday;
@@ -329,6 +339,7 @@ main {
   .modal-header {
     font-size: 3vw;
   }
+
   .modal-footer {
     font-size: 2vw;
   }
