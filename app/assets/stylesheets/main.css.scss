@@ -177,7 +177,7 @@ main {
   .menu-link {
     position: absolute;
     right: 5px;
-    top: 5px;
+    top: 3px;
   }
 
   nav.options-menu {
@@ -189,7 +189,7 @@ main {
     &.shown {
       left: 80vw;
       width: $menu-width;
-      top: $week-height;
+      top: 29px;
     }
   }
 }
