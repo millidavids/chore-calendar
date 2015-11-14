@@ -1,7 +1,8 @@
 var Week = React.createClass({
   handleClick: function(e) {
-    this.props.onSetDay(e.currentTarget.getAttribute("value"));
+    this.props.onSetDay(e.currentTarget.getAttribute('value'));
   },
+
   render: function () {
     return (
       <div className="week">
