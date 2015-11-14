@@ -24,30 +24,6 @@ body.devise {
     padding: 10px 15px;
     border-radius: 2px;
   }
-
-  &.saturday, &.sunday {
-    background-color: $weekend;
-  }
-
-  &.monday {
-    background-color: $monday;
-  }
-
-  &.tuesday {
-    background-color: $tuesday;
-  }
-
-  &.wednesday {
-    background-color: $wednesday;
-  }
-
-  &.thursday {
-    background-color: $thursday;
-  }
-
-  &.friday {
-    background-color: $friday;
-  }
 }
 
 main {
@@ -69,7 +45,7 @@ main {
 .week {
   color: rgba(255, 255, 255, .3);
   position: relative;
-  height: 20%;
+  height: $week-height;
   width: 100%;
 }
 
@@ -79,10 +55,11 @@ main {
 
 .present-day {
   position: relative;
-  left: 20%;
-  height: 80%;
-  width: 80%;
+  left: $chore-list-width;
+  height: $person-height;
+  width: $person-width;
   font-size: 12vw;
+  line-height: 12vw;
 }
 
 .weekday {
@@ -92,6 +69,7 @@ main {
   float: left;
   position: relative;
   font-size: 3vw;
+  line-height: 3vw;
   cursor: pointer;
 }
 
@@ -101,6 +79,7 @@ main {
   height: 80%;
   width: 100%;
   font-size: 12vw;
+  line-height: 12vw;
 }
 
 .full-width-vertical-center {
@@ -144,20 +123,43 @@ main {
 
 .chore-list {
   position: absolute;
-  font-size: 4vh;
   left: 0;
-  top: 20%;
-  height: 78vh;
-  width: 20%;
+  top: $week-height;
+  height: $chore-list-height;
+  width: $chore-list-width;
   z-index: 100;
-  margin: 0px;
-  margin-top: 2vh;
-  li {
-    padding-top: 2vh;
-  }
-}
+  margin: 0;
 
-.special-task {
-  color: lighten(yellow, 30%);
-  font-size: 4vh;
+  li {
+    display: table;
+    width: 100%;
+
+    &.special-task {
+      color: lighten(yellow, 30%);
+    }
+
+    .task-body {
+      padding: 5px;
+      position: relative;
+      display: table-cell;
+      vertical-align: middle;
+    }
+  }
+
+  @for $count from 0 through $max-task-count {
+    &.tasks-#{$count} {
+      li {
+        font-size: ($chore-list-height / $count) * 0.25;
+        line-height: ($chore-list-height / $count) * 0.3;
+        height: $chore-list-height / $count;
+        overflow: hidden;
+
+        &:nth-child(even) {
+          background-color: rgba(255, 255, 255, 0.1);
+          border-top-right-radius: 4px;
+          border-bottom-right-radius: 4px;
+        }
+      }
+    }
+  }
 }

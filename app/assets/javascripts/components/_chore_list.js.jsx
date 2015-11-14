@@ -25,8 +25,11 @@ var ChoreList = React.createClass({
   },
 
   render: function() {
+    var taskCount = this.state.tasks[this.props.day].length +
+                    this.state.tasks.everyday.length;
+    var className = 'chore-list tasks-' + taskCount;
     return (
-      <ul className="chore-list">
+      <ul className={ className }>
         {this.state.tasks[this.props.day].map(function(task) {
           return (
             <Task task={ task } day={ this.props.day } key={'task-' + task}/>

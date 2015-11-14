@@ -3,7 +3,7 @@ var Task = React.createClass({
     var className = this.props.day === 'everyday' ? '' : 'special-task';
     return (
       <li className={ className }>
-        { this.props.task }
+        <span className="task-body">{ this.props.task }</span>
       </li>
     );
   }
