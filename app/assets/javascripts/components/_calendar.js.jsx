@@ -1,24 +1,38 @@
 var Calendar = React.createClass({
   getInitialState: function() {
-    return {day: (() => {
-      switch (this.props.currentDay) {
-        case 0: return 'weekend';
-        case 1: return 'monday';
-        case 2: return 'tuesday';
-        case 3: return 'wednesday';
-        case 4: return 'thursday';
-        case 5: return 'friday';
-        case 6: return 'weekend';
-      }
-    })()};
+    return {
+      day: (() => {
+        switch (this.props.currentDay) {
+          case 0: return 'weekend';
+          case 1: return 'monday';
+          case 2: return 'tuesday';
+          case 3: return 'wednesday';
+          case 4: return 'thursday';
+          case 5: return 'friday';
+          case 6: return 'weekend';
+        }
+      })(),
+      people: this.props.people
+    };
   },
 
   setDay: function(n) {
     this.setState({day: n});
   },
 
-  setPerson: function() {
-    return 'David';
+  switchPeople: function(nameA, nameB) {
+    var idPersonA = this.props.people[nameA];
+    var idPersonB = this.props.people[nameB];
+    $.ajax({
+      url: this.props.switchPeopleUrl,
+      dataType: 'json',
+      data: {people_ids: [idPersonA, idPersonB]}
+    }).done(function(people, status, xhr) {
+      console.log(people);
+      this.setState({people: people})
+    }).fail(function(xhr, status, error) {
+      console.error('failed to switch people', error);
+    });
   },
 
   render: function () {
@@ -36,9 +50,9 @@ var Calendar = React.createClass({
           <CurrentDay day={ this.state.day } name={ name }/>
         </div>
         <div className="managing">
-          <DaySwitcher className="day-switcher" day={ this.state.day } people={ this.props.people} onPeopleSwitch={ this.setPerson }/>
+          <DaySwitcher className="day-switcher" day={ this.state.day } people={ this.state.people }/>
         </div>
-        <Menu signOutUrl={ this.props.signOutUrl } />
+        <Menu signOutUrl={ this.props.signOutUrl } onSwitchPeople={ this.switchPeople } />
       </div>
     );
   }
