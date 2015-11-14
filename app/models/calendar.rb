@@ -8,6 +8,21 @@ class Calendar < ActiveRecord::Base
   validates :user_id, presence: true, uniqueness: true
   validate :person_order_is_people_ids
 
+  def exemptions_by_day
+    hash = {}
+    exemptions.includes(:person).each do |exemption|
+      key = exemption.day
+      hash[key] ||= []
+      hash[key] << {
+        id: exemption.id,
+        personId: exemption.person_id,
+        name: exemption.person.name,
+        recurring: exemption.recurring?
+      }
+    end
+    hash
+  end
+
   def make_current
     old_date = date
     new_date = Date.today

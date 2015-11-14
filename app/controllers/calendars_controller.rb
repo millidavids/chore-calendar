@@ -13,6 +13,7 @@ class CalendarsController < ApplicationController
     end
     @week = @calendar.get_week_hash(@current_day)
     @person_list = @calendar.get_person_hash
+    @exemptions = @calendar.exemptions_by_day
     respond_with @week.to_json, @current_day, @person_list
   end
 

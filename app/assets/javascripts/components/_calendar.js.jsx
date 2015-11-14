@@ -1,19 +1,25 @@
 var Calendar = React.createClass({
+  getDayName: function(day) {
+    if (typeof day === 'string') {
+      day = parseInt(day, 10);
+    }
+    switch (day) {
+      case 0: return 'weekend';
+      case 1: return 'monday';
+      case 2: return 'tuesday';
+      case 3: return 'wednesday';
+      case 4: return 'thursday';
+      case 5: return 'friday';
+      case 6: return 'weekend';
+    }
+  },
+
   getInitialState: function() {
     return {
-      day: (() => {
-        switch (this.props.currentDay) {
-          case 0: return 'weekend';
-          case 1: return 'monday';
-          case 2: return 'tuesday';
-          case 3: return 'wednesday';
-          case 4: return 'thursday';
-          case 5: return 'friday';
-          case 6: return 'weekend';
-        }
-      })(),
+      day: this.getDayName(this.props.currentDay),
       people: this.props.people,
-      showManagement: false
+      showManagement: false,
+      exemptions: this.props.exemptions
     };
   },
 
@@ -58,7 +64,7 @@ var Calendar = React.createClass({
           }
           <CurrentDay day={ this.state.day } name={ name }/>
         </div>
-        <Management isVisible={ this.state.showManagement } hideManagement={ this.hideManagement } />
+        <Management isVisible={ this.state.showManagement } hideManagement={ this.hideManagement } exemptions={ this.state.exemptions } getDayName={ this.getDayName } />
         <Menu signOutUrl={ this.props.signOutUrl } showManagement={ this.showManagement } onSwitchPeople={ this.switchPeople } />
       </div>
     );
