@@ -24,10 +24,11 @@ var Calendar = React.createClass({
   render: function () {
     var name = this.props.week[this.state.day];
     return (
-      <div className="calendar">
+      <div className={["calendar", [this.state.day, "color"].join("-")].join(" ")}>
         <div className="calendar-inner">
           <Week className="week" days={ this.props.week } onSetDay={this.setDay}/>
-          <div className={["present-day", [this.state.day, "color"].join("-")].join(" ")}>
+          <ChoreList className="chore-list" day={ this.state.day }/>
+          <div className="present-day">
             <div className="full-width-vertical-center">
               { name }
             </div>
