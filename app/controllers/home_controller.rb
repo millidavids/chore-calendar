@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  # before_action :authenticate_user!
+  before_action :authenticate_user!
   before_action :set_current_day, only: [:index]
   before_action :set_calendar, only: [:index]
   before_action :set_week, only: [:index]
