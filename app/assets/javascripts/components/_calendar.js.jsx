@@ -12,7 +12,8 @@ var Calendar = React.createClass({
           case 6: return 'weekend';
         }
       })(),
-      people: this.props.people
+      people: this.props.people,
+      showManagement: false
     };
   },
 
@@ -35,6 +36,14 @@ var Calendar = React.createClass({
     });
   },
 
+  showManagement: function() {
+    this.setState({showManagement: true});
+  },
+
+  hideManagement: function() {
+    this.setState({showManagement: false});
+  },
+
   render: function () {
     var name = this.props.week[this.state.day];
     var className = 'calendar ' + this.state.day + '-color';
@@ -49,10 +58,8 @@ var Calendar = React.createClass({
           }
           <CurrentDay day={ this.state.day } name={ name }/>
         </div>
-        <div className="managing">
-          <DaySwitcher className="day-switcher" day={ this.state.day } people={ this.state.people }/>
-        </div>
-        <Menu signOutUrl={ this.props.signOutUrl } onSwitchPeople={ this.switchPeople } />
+        <Management isVisible={ this.state.showManagement } hideManagement={ this.hideManagement } />
+        <Menu signOutUrl={ this.props.signOutUrl } showManagement={ this.showManagement } onSwitchPeople={ this.switchPeople } />
       </div>
     );
   }

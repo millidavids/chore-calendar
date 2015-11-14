@@ -99,12 +99,24 @@ main {
   transform: translate(0%, -50%);
 }
 
-.managing {
+.management {
   position: absolute;
   left: 100%;
   top: 0;
   width: 100vw;
   height: 100vh;
+  background-color: #fff;
+  z-index: 999;
+
+  &.shown {
+    left: 0;
+  }
+
+  .close-management-link {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+  }
 }
 
 .monday-color {
@@ -188,7 +200,7 @@ main {
     top: 3px;
   }
 
-  nav.options-menu {
+  .options-menu {
     background-color: darken($wednesday, 10%);
     position: absolute;
     left: 100%;
@@ -198,6 +210,24 @@ main {
       left: 80vw;
       width: $menu-width;
       top: 29px;
+    }
+
+    ul {
+      margin: 0;
+
+      li {
+        a {
+          font-size: 1rem;
+          color: #fff;
+          display: block;
+          padding: 0 15px;
+          line-height: 3rem;
+
+          &:hover, &:focus {
+            background-color: rgba(0, 0, 0, 0.1);
+          }
+        }
+      }
     }
   }
 }

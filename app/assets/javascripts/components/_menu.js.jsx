@@ -19,15 +19,20 @@ var Menu = React.createClass({
         <a href="#" onClick={ this.toggleMenu } className="menu-link">
           <i className="material-icons">menu</i>
         </a>
-        <nav className={ menuClass }>
+        <div className={ menuClass }>
           <ul>
+            <li>
+              <a href="#" onClick={ this.props.showManagement }>
+                Management
+              </a>
+            </li>
             <li>
               <a href={ this.props.signOutUrl }>
                 Log Out
               </a>
             </li>
           </ul>
-        </nav>
+        </div>
       </div>
     );
   }
