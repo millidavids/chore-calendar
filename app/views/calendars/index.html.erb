@@ -1,3 +1,3 @@
 <%# app/views/records/index.html.erb %>
 
-<%= react_component 'Calendar', {week: @week, currentDay: @current_day, people: @person_list, signOutUrl: destroy_user_session_path, switchPeopleUrl: calendar_people_switch_path, exemptions: @exemptions}, {class: 'calendar'} %>
+<%= react_component 'Calendar', {week: @week, currentDay: @current_day, people: @people, signOutUrl: destroy_user_session_path, switchPeopleUrl: calendar_people_switch_path, exemptions: @exemptions}, {class: 'calendar'} %>

@@ -17,6 +17,7 @@ var Calendar = React.createClass({
   getInitialState: function() {
     return {
       day: this.getDayName(this.props.currentDay),
+      week: this.props.week,
       people: this.props.people,
       showManagement: false,
       exemptions: this.props.exemptions
@@ -28,17 +29,18 @@ var Calendar = React.createClass({
   },
 
   switchPeople: function(nameB) {
-    var currentPerson = this.props.week[this.state.day];
-    var idPersonA = this.props.people[currentPerson];
-    var idPersonB = this.props.people[nameB];
+    var currentPerson = this.state.week[this.state.day];
+    var idPersonA = this.state.people[currentPerson];
+    var idPersonB = this.state.people[nameB];
     $.ajax({
       url: this.props.switchPeopleUrl,
+      type: 'POST',
       dataType: 'json',
       data: {people_ids: [idPersonA, idPersonB]}
-    }).done(function(people, status, xhr) {
-      console.log(people);
-      this.setState({people: people})
-    }).fail(function(xhr, status, error) {
+    }).done(function(data, status, xhr) {
+      console.log(data);
+      this.setState({week: data.week, people: data.people})
+    }.bind(this)).fail(function(xhr, status, error) {
       console.error('failed to switch people', error);
     });
   },
@@ -52,13 +54,16 @@ var Calendar = React.createClass({
   },
 
   render: function () {
-    var name = this.props.week[this.state.day];
+    var name = this.state.week[this.state.day];
     var className = 'calendar ' + this.state.day + '-color';
     var peopleNames = Object.keys(this.state.people);
     return (
       <div className={ className }>
         <div className="calendar-inner">
-          <Week className="week" days={ this.props.week } currentDay={ this.state.day } onSetDay={this.setDay}/>
+          <Week className="week"
+                days={ this.state.week }
+                currentDay={ this.state.day }
+                onSetDay={this.setDay}/>
           {
             this.state.day === 'weekend' ? '' : (
               <ChoreList className="chore-list" day={ this.state.day }/>
@@ -66,7 +71,10 @@ var Calendar = React.createClass({
           }
           <CurrentDay day={ this.state.day } name={ name }/>
         </div>
-        <Management isVisible={ this.state.showManagement } hideManagement={ this.hideManagement } exemptions={ this.state.exemptions } getDayName={ this.getDayName } />
+        <Management isVisible={ this.state.showManagement }
+                    hideManagement={ this.hideManagement }
+                    exemptions={ this.state.exemptions }
+                    getDayName={ this.getDayName } />
         <Menu signOutUrl={ this.props.signOutUrl }
               person={ name }
               peopleNames={ peopleNames }
