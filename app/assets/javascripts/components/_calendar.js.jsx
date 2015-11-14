@@ -12,23 +12,31 @@ var Calendar = React.createClass({
       }
     })()};
   },
+
   setDay: function(n) {
     this.setState({day: n});
   },
+
+  setPerson: function() {
+    return 'David';
+  },
+
   render: function () {
-    var name = this.props.week[this.state.day]
+    var name = this.props.week[this.state.day];
     return (
-      <div className="calendar-inner">
-        <Week className="week" days={ this.props.week } onSetDay={this.setDay}/>
-        <div className={["present-day", [this.state.day, "color"].join("-")].join(" ")}>
-          <div className="full-width-vertical-center">
-            { name }
+      <div className="calendar">
+        <div className="calendar-inner">
+          <Week className="week" days={ this.props.week } onSetDay={this.setDay}/>
+          <div className={["present-day", [this.state.day, "color"].join("-")].join(" ")}>
+            <div className="full-width-vertical-center">
+              { name }
+            </div>
           </div>
         </div>
+        <div className="managing">
+          <DaySwitcher className="day-switcher" days={ this.props.week } onPeopleSwitch={this.setPerson}/>
+        </div>
       </div>
-      <div className="managing">
-        <DaySwitcher className="day-switcher" days={ this.props.week } people={ this.props.people } onPeopleSwitch={}/>
-      </div>
-    )
+    );
   }
 });
