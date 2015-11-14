@@ -5,21 +5,21 @@ user = User.create!(username: ENV['DEFAULT_USER'],
 puts "\tSeeded user #{user.username} with password #{ENV['DEFAULT_PASSWORD']}"
 
 puts 'Seeding people'
-user.people.create!(name: 'David Yurek')
-user.people.create!(name: 'Dave Hempy')
-user.people.create!(name: 'Chase Southard')
-user.people.create!(name: 'Chase James')
-user.people.create!(name: 'Todd Wiley')
-user.people.create!(name: 'Sarah Vessels')
-user.people.create!(name: 'Nick Warner')
-user.people.create!(name: 'Lindsay Rall')
-user.people.create!(name: 'Summer Smith')
-user.people.create!(name: 'Michael Bates')
-user.people.create!(name: 'Michael Huelsman')
-user.people.create!(name: 'Graham Hough')
-user.people.create!(name: 'Tristan Basil')
-user.people.create!(name: 'Erik Mudrak')
+user.people.create!(name: 'David Y')
+user.people.create!(name: 'Dave H')
+user.people.create!(name: 'Chase S')
+user.people.create!(name: 'Chase J')
+user.people.create!(name: 'Todd')
+user.people.create!(name: 'Sarah')
+user.people.create!(name: 'Nick')
+user.people.create!(name: 'Lindsay')
+user.people.create!(name: 'Summer')
+user.people.create!(name: 'Mklbtz')
+user.people.create!(name: 'Michael H')
+user.people.create!(name: 'Gorm')
+user.people.create!(name: 'Tito')
+user.people.create!(name: 'Erik')
 
 puts 'Seeding calendar'
-user.calendars.create!(date: Date.today, current_day_id: 1,
-                       person_order: [*1..user.people.count])
+Calendar.create!(date: Date.today, current_day_id: 1, user: user,
+                 person_order: [*1..user.people.count])
