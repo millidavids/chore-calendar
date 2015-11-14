@@ -2,17 +2,17 @@
 @import url(https://fonts.googleapis.com/css?family=Varela+Round);
 
 html, body {
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   margin: 0;
   font-size: 16px;
   font-family: 'Varela Round', sans-serif;
   font-weight: 500;
-  color: rgba(255, 255, 255, .8);
+  color: rgba(255, 255, 255, 0.8);
 }
 
-body.home.index {
-  overflow-x: hidden;
+body.calendars.index {
+  overflow: hidden;
 }
 
 body.devise {

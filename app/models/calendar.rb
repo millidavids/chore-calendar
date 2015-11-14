@@ -1,6 +1,7 @@
 class Calendar < ActiveRecord::Base
   belongs_to :user
   has_many :people, through: :user
+  has_many :exemptions
 
   validates :current_day_id, presence: true
   validates :date, presence: true
@@ -16,7 +17,13 @@ class Calendar < ActiveRecord::Base
       end
     end
     self.date = new_date
-    changed? or save
+    return true unless changed?
+    success = true
+    # Get rid of last week's (or older) exemptions
+    exemptions.not_recurring.each do |exemption|
+      success = success && exemption.destroy
+    end
+    success && save
   end
 
   def get_person_hash

@@ -10,7 +10,7 @@ user.people.create!(name: 'Dave H')
 user.people.create!(name: 'Chase S')
 user.people.create!(name: 'Chase J')
 user.people.create!(name: 'Todd')
-user.people.create!(name: 'Sarah')
+sarah = user.people.create!(name: 'Sarah')
 user.people.create!(name: 'Nick')
 user.people.create!(name: 'Lindsay')
 user.people.create!(name: 'Summer')
@@ -21,5 +21,8 @@ user.people.create!(name: 'Tito')
 user.people.create!(name: 'Erik')
 
 puts 'Seeding calendar'
-Calendar.create!(date: Date.today, current_day_id: 1, user: user,
-                 person_order: [*1..user.people.count])
+calendar = Calendar.create!(date: Date.today, current_day_id: 1, user: user,
+                            person_order: [*1..user.people.count])
+
+puts 'Seeding exemptions'
+Exemption.create!(day: 3, person: sarah, calendar: calendar, recurring: true)
