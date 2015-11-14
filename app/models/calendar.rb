@@ -16,14 +16,11 @@ class Calendar < ActiveRecord::Base
       end
     end
     self.date = new_date
-    return true unless changed?
-    save
+    changed? or save
   end
 
   def get_person_hash
-    Hash[person_order.map {|i|
-      [people.find(i).name, i]
-    }]
+    Hash[person_order.map {|id| [people.find(id).name, id] }]
   end
 
   # Returns a hash of weekdays and the people assigned to them.
