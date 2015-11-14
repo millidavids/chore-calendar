@@ -23,30 +23,6 @@ body.devise {
     padding: 10px 15px;
     border-radius: 2px;
   }
-
-  &.saturday, &.sunday {
-    background-color: $weekend;
-  }
-
-  &.monday {
-    background-color: $monday;
-  }
-
-  &.tuesday {
-    background-color: $tuesday;
-  }
-
-  &.wednesday {
-    background-color: $wednesday;
-  }
-
-  &.thursday {
-    background-color: $thursday;
-  }
-
-  &.friday {
-    background-color: $friday;
-  }
 }
 
 main {
@@ -77,6 +53,7 @@ main {
   height: 80%;
   width: 80%;
   font-size: 12vw;
+  line-height: 12vw;
 }
 
 .weekday {
@@ -86,6 +63,7 @@ main {
   float: left;
   position: relative;
   font-size: 3vw;
+  line-height: 3vw;
   cursor: pointer;
 }
 
@@ -95,6 +73,7 @@ main {
   height: 80%;
   width: 100%;
   font-size: 12vw;
+  line-height: 12vw;
 }
 
 .full-width-vertical-center {
