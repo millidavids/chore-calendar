@@ -20,8 +20,9 @@ var Calendar = React.createClass({
     this.setState({day: n});
   },
 
-  switchPeople: function(nameA, nameB) {
-    var idPersonA = this.props.people[nameA];
+  switchPeople: function(nameB) {
+    var currentPerson = this.props.week[this.state.day];
+    var idPersonA = this.props.people[currentPerson];
     var idPersonB = this.props.people[nameB];
     $.ajax({
       url: this.props.switchPeopleUrl,
