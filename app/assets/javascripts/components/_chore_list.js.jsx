@@ -3,13 +3,12 @@ var ChoreList = React.createClass({
     return {
       tasks: {
         everyday: [
-          'Gather dishes and trash from desks and downstairs table',
+          'Gather dishes + trash from desks, downstairs table',
           'Empty, load, and start dishwasher',
           'Wipe countertops',
           'Slay ants',
-          'Empty trash',
-          'Empty recycling',
-          'Check soap and toilet paper in bathrooms'
+          'Empty trash and recycling',
+          'Check soap, toilet paper in bathrooms'
         ],
         monday: [
           'Take trash cans to the curb'
