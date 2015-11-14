@@ -27,11 +27,7 @@ var Calendar = React.createClass({
       <div className="calendar">
         <div className="calendar-inner">
           <Week className="week" days={ this.props.week } onSetDay={this.setDay}/>
-          <div className={["present-day", [this.state.day, "color"].join("-")].join(" ")}>
-            <div className="full-width-vertical-center">
-              { name }
-            </div>
-          </div>
+          <CurrentDay day={ this.state.day } name={ name } />
         </div>
         <div className="managing">
           <DaySwitcher className="day-switcher" days={ this.props.week } onPeopleSwitch={this.setPerson}/>
