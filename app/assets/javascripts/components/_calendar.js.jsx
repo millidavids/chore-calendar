@@ -70,7 +70,7 @@ var Calendar = React.createClass({
         <Menu signOutUrl={ this.props.signOutUrl }
               person={ name }
               peopleNames={ peopleNames }
-              onSwitchPeople={ this.switchPeople }
+              switchPeople={ this.switchPeople }
               showManagement={ this.showManagement } />
       </div>
     );

@@ -1,22 +1,13 @@
 var Person = React.createClass({
-  getInitialState: function() {
-    return {
-      isSelected: false
-    };
-  },
-
-  selectPerson: function() {
-    this.setState({isSelected: true});
+  onSelect: function() {
+    this.props.switchPeople(this.props.name);
+    this.props.toggleModal();
   },
 
 	render: function() {
-    var className = 'swap-person ';
-    if (this.state.isSelected) {
-      className += 'selected-person';
-    }
 		return (
       <li className="swap-person">
-        <a href="#" onClick={ this.selectPerson }>
+        <a href="#" onClick={ this.onSelect }>
           { this.props.name }
         </a>
       </li>

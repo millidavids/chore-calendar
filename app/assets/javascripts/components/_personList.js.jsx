@@ -9,9 +9,12 @@ var PersonList = React.createClass({
 			  {
           this.props.peopleNames.map(function(name) {
             return (
-              <Person name={name} key={name}/>
+              <Person name={name}
+                      key={name}
+                      switchPeople={ this.props.switchPeople }
+                      toggleModal={ this.props.toggleModal }/>
             );
-          })
+          }.bind(this))
         }
       </ul>
 		);

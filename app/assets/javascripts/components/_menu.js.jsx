@@ -27,6 +27,11 @@ var Menu = React.createClass({
         <div className={ menuClass }>
           <ul>
             <li>
+              <a href="#" onClick={ this.toggleModal }>
+                Swap People
+              </a>
+            </li>
+            <li>
               <a href="#" onClick={ this.props.showManagement }>
                 Management
               </a>
@@ -36,14 +41,13 @@ var Menu = React.createClass({
                 Log Out
               </a>
             </li>
-            <li>
-              <a href="#" onClick={ this.toggleModal }>
-                Swap People
-              </a>
-            </li>
           </ul>
         </div>
-        <SwapModal isVisible={ this.state.showModal } currentPerson={ this.props.person } peopleNames={ this.props.peopleNames } switchPeople={ this.props.switchPeople } toggleModal={ this.toggleModal }/>
+        <SwapModal isVisible={ this.state.showModal }
+                   currentPerson={ this.props.person }
+                   peopleNames={ this.props.peopleNames }
+                   switchPeople={ this.props.switchPeople }
+                   toggleModal={ this.toggleModal }/>
       </div>
     );
   }
