@@ -1,11 +1,15 @@
 var PersonList = React.createClass({
 	render: function() {
+    var currentPersonIndex = this.props.peopleNames.indexOf(this.props.currentPerson);
+    if (currentPersonIndex > -1) {
+      var people = this.props.peopleNames.splice(currentPersonIndex, 1);
+    }
 		return (
-      <ul>
+      <ul className="swap-person-list">
 			  {
-          this.props.people.map(function() {
+          this.props.peopleNames.map(function(name) {
             return (
-              <Person key={}
+              <Person name={name} key={name}/>
             );
           })
         }

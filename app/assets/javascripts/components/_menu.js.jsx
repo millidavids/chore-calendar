@@ -38,7 +38,7 @@ var Menu = React.createClass({
             </li>
           </ul>
         </nav>
-        <SwapModal isVisible={ this.state.showModal } currentPerson={ this.props.person } people={ this.props.people }/>
+        <SwapModal isVisible={ this.state.showModal } currentPerson={ this.props.person } peopleNames={ this.props.peopleNames } switchPeople={ this.props.switchPeople } toggleModal={ this.toggleModal }/>
       </div>
     );
   }

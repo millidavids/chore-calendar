@@ -38,7 +38,7 @@ var Calendar = React.createClass({
   render: function () {
     var name = this.props.week[this.state.day];
     var className = 'calendar ' + this.state.day + '-color';
-    console.log('_calendar name: ', name);
+    var peopleNames = Object.keys(this.state.people);
     return (
       <div className={ className }>
         <div className="calendar-inner">
@@ -53,7 +53,7 @@ var Calendar = React.createClass({
         <div className="managing">
           <DaySwitcher className="day-switcher" day={ this.state.day } people={ this.state.people }/>
         </div>
-        <Menu signOutUrl={ this.props.signOutUrl } person={ name } people={ this.state.people } onSwitchPeople={ this.switchPeople } />
+        <Menu signOutUrl={ this.props.signOutUrl } person={ name } peopleNames={ peopleNames } onSwitchPeople={ this.switchPeople } />
       </div>
     );
   }

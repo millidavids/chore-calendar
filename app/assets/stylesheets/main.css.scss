@@ -189,7 +189,7 @@ main {
   }
 
   .modal {
-    color: $weekend;
+    color: $friday;
     display: block;
     bottom: 0;
     left: 0;
@@ -205,6 +205,36 @@ main {
 
     &.shown {
       visibility: visible;
+    }
+
+    .swap-person-list {
+      display: inline-block;
+
+      a {
+        color: $friday;
+      }
+
+      .swap-person {
+        display: inline-block;
+        font-size: 26px;
+        white-space: nowrap;
+        padding: 10px 20px 10px 20px;
+
+        &:hover {
+          background-color: lighten($wednesday, 40%);
+        }
+
+        & .selected-person {
+          background-color: lighten($wednesday, 20%);
+        }
+      }
+    }
+
+    .modal-header {
+      font-size: 3vw;
+    }
+    .modal-footer {
+      font-size: 2vw;
     }
   }
 
