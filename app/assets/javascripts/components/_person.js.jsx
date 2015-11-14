@@ -1,7 +1,7 @@
 var Person = React.createClass({
   onSelect: function() {
     this.props.switchPeople(this.props.name);
-    this.props.toggleModal();
+    this.props.hideSwitchModal();
   },
 
 	render: function() {

@@ -20,7 +20,8 @@ var Calendar = React.createClass({
       week: this.props.week,
       people: this.props.people,
       showManagement: false,
-      exemptions: this.props.exemptions
+      exemptions: this.props.exemptions,
+      showSwitchModal: false
     };
   },
 
@@ -28,17 +29,16 @@ var Calendar = React.createClass({
     this.setState({day: n});
   },
 
-  switchPeople: function(nameB) {
-    var currentPerson = this.state.week[this.state.day];
-    var idPersonA = this.state.people[currentPerson];
-    var idPersonB = this.state.people[nameB];
+  switchPeople: function(otherPersonName) {
+    var currentPersonName = this.state.week[this.state.day];
+    var idPersonA = this.state.people[currentPersonName];
+    var idPersonB = this.state.people[otherPersonName];
     $.ajax({
       url: this.props.switchPeopleUrl,
       type: 'POST',
       dataType: 'json',
       data: {people_ids: [idPersonA, idPersonB]}
     }).done(function(data, status, xhr) {
-      console.log(data);
       this.setState({week: data.week, people: data.people})
     }.bind(this)).fail(function(xhr, status, error) {
       console.error('failed to switch people', error);
@@ -51,6 +51,14 @@ var Calendar = React.createClass({
 
   hideManagement: function() {
     this.setState({showManagement: false});
+  },
+
+  hideSwitchModal: function() {
+    this.setState({showSwitchModal: false});
+  },
+
+  showSwitchModal: function() {
+    this.setState({showSwitchModal: true});
   },
 
   render: function () {
@@ -69,17 +77,20 @@ var Calendar = React.createClass({
               <ChoreList className="chore-list" day={ this.state.day }/>
             )
           }
-          <CurrentDay day={ this.state.day } name={ name }/>
+          <CurrentDay showSwitchModal={ this.showSwitchModal }
+                      day={ this.state.day } name={ name }/>
         </div>
         <Management isVisible={ this.state.showManagement }
                     hideManagement={ this.hideManagement }
                     exemptions={ this.state.exemptions }
                     getDayName={ this.getDayName } />
         <Menu signOutUrl={ this.props.signOutUrl }
-              person={ name }
-              peopleNames={ peopleNames }
-              switchPeople={ this.switchPeople }
               showManagement={ this.showManagement } />
+        <SwapModal isVisible={ this.state.showSwitchModal }
+                   currentPerson={ name }
+                   peopleNames={ peopleNames }
+                   switchPeople={ this.switchPeople }
+                   hideSwitchModal={ this.hideSwitchModal }/>
       </div>
     );
   }

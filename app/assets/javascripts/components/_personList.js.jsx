@@ -1,8 +1,8 @@
 var PersonList = React.createClass({
 	render: function() {
-    var currentPersonIndex = this.props.peopleNames.indexOf(this.props.currentPerson);
-    if (currentPersonIndex > -1) {
-      var people = this.props.peopleNames.splice(currentPersonIndex, 1);
+    var index = this.props.peopleNames.indexOf(this.props.currentPerson);
+    if (index > -1) {
+      this.props.peopleNames.splice(index, 1);
     }
 		return (
       <ul className="swap-person-list">
@@ -12,7 +12,7 @@ var PersonList = React.createClass({
               <Person name={name}
                       key={name}
                       switchPeople={ this.props.switchPeople }
-                      toggleModal={ this.props.toggleModal }/>
+                      hideSwitchModal={ this.props.hideSwitchModal }/>
             );
           }.bind(this))
         }
