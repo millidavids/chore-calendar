@@ -188,8 +188,24 @@ main {
     top: 3px;
   }
 
-  &.shown {
-    visibility: visible;
+  .modal {
+    color: $weekend;
+    display: block;
+    bottom: 0;
+    left: 0;
+    outline: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: fixed;
+    right: 0;
+    top: 0;
+    visibility: hidden;
+    width: 60vw;
+    z-index: 1000;
+
+    &.shown {
+      visibility: visible;
+    }
   }
 
   nav.options-menu {
