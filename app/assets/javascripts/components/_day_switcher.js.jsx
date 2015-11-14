@@ -4,13 +4,14 @@ var DaySwitcher = React.createClass({
       people: this.props.people
     };
   },
+
   switchTwoPeople: function() {
     // switch two people
   },
+
   render: function() {
     return (
-      <div className="day-switcher-inner">
-      </div>
+      <div className="day-switcher-inner"></div>
     )
   }
 });
