@@ -36,7 +36,7 @@ var Calendar = React.createClass({
           <CurrentDay day={ this.state.day } name={ name }/>
         </div>
         <div className="managing">
-          <DaySwitcher className="day-switcher" days={ this.props.week } onPeopleSwitch={ this.setPerson }/>
+          <DaySwitcher className="day-switcher" day={ this.state.day } people={ this.props.people} onPeopleSwitch={ this.setPerson }/>
         </div>
       </div>
     );
