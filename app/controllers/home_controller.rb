@@ -1,9 +1,9 @@
-class IndexController < ApplicationController
-  respond_to :html
-
+class HomeController < ApplicationController
+  # before_action :authenticate_user!
   before_action :set_current_day, only: [:index]
   before_action :set_calendar, only: [:index]
   before_action :set_week, only: [:index]
+  respond_to :html
 
   # GET /
   def index
