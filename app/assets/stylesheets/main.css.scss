@@ -236,6 +236,56 @@ main {
     top: 3px;
   }
 
+  .modal {
+    color: $friday;
+    display: block;
+    bottom: 0;
+    left: 0;
+    outline: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: fixed;
+    right: 0;
+    top: 0;
+    visibility: hidden;
+    width: 60vw;
+    z-index: 1000;
+
+    &.shown {
+      visibility: visible;
+    }
+
+    .swap-person-list {
+      display: inline-block;
+
+      a {
+        color: $friday;
+      }
+
+      .swap-person {
+        display: inline-block;
+        font-size: 26px;
+        white-space: nowrap;
+        padding: 10px 20px 10px 20px;
+
+        &:hover {
+          background-color: lighten($wednesday, 40%);
+        }
+
+        & .selected-person {
+          background-color: lighten($wednesday, 20%);
+        }
+      }
+    }
+
+    .modal-header {
+      font-size: 3vw;
+    }
+    .modal-footer {
+      font-size: 2vw;
+    }
+  }
+
   .options-menu {
     background-color: darken($wednesday, 10%);
     position: absolute;
