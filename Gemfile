@@ -29,6 +29,10 @@ gem 'react-rails', '~> 1.4.1'
 # Responders
 gem 'responders', '~> 2.0'
 
+# iCal
+gem 'chronic', '~> 0.10.2'
+gem 'icalendar', '~> 2.3.0'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
