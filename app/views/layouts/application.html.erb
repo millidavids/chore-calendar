@@ -9,7 +9,37 @@
   <%= csrf_meta_tags %>
 </head>
 <body class="<%= params[:controller].split('/').first %> <%= params[:controller].split('/').join('-') %> <%= params[:action] %> <%= Time.now.strftime('%A').downcase %>">
+  <% if devise_controller? %>
+    <header class="title-area">
+      <div class="container">
+        <h1 class="white-text">
+          Chore Calendar
+        </h1>
+      </div>
+    </header>
+    <main class="main-content">
+      <div class="container">
+        <% if notice.present? %>
+          <p class="notice teal"><%= notice %></p>
+        <% end %>
+        <% if alert.present? %>
+          <p class="alert deep-orange"><%= alert %></p>
+        <% end %>
+  <% end %>
   <%= yield %>
+  <% if devise_controller? %>
+      </div>
+    </main>
+    <footer class="footer">
+      <div class="container">
+        <ul>
+          <li>
+            <%= link_to 'View Source', 'https://github.com/millidavids/chore-calendar', class: 'orange-text text-darken-4' %>
+          </li>
+        </ul>
+      </div>
+    </footer>
+  <% end %>
   <%= javascript_include_tag 'application' %>
 </body>
 </html>

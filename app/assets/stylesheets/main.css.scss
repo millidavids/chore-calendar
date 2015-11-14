@@ -15,7 +15,14 @@ body.home.index {
 }
 
 body.devise {
-  padding: 2em;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+
+  .alert, .notice {
+    padding: 10px 15px;
+    border-radius: 2px;
+  }
 
   &.saturday, &.sunday {
     background-color: $weekend;
@@ -40,6 +47,10 @@ body.devise {
   &.friday {
     background-color: $friday;
   }
+}
+
+main {
+  flex: 1 0 auto;
 }
 
 .calendar {
