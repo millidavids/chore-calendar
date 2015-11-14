@@ -1,12 +1,17 @@
 var Menu = React.createClass({
   getInitialState: function() {
     return {
-      showMenu: false
+      showMenu: false,
+      showModal: false
     };
   },
 
   toggleMenu: function() {
     this.setState({showMenu: !this.state.showMenu});
+  },
+
+  toggleModal: function() {
+    this.setState({showModal: !this.state.showModal});
   },
 
   render: function() {
@@ -26,8 +31,14 @@ var Menu = React.createClass({
                 Log Out
               </a>
             </li>
+            <li>
+              <a href="#" onClick={ this.toggleModal }>
+                Swap People
+              </a>
+            </li>
           </ul>
         </nav>
+        <SwapModal isVisible={ this.state.showModal }/>
       </div>
     );
   }

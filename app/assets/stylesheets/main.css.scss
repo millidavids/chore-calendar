@@ -180,9 +180,14 @@ main {
     top: 5px;
   }
 
+  &.shown {
+    visibility: visible;
+  }
+
   nav.options-menu {
     background-color: darken($wednesday, 10%);
     position: absolute;
+    height: 19vh;
     left: 100%;
     top: 0;
 
@@ -190,6 +195,13 @@ main {
       left: 80vw;
       width: $menu-width;
       top: $week-height;
+    }
+
+    li {
+      clear: both;
+      display: block;
+      position: relative;
+      width: 100%;
     }
   }
 }
