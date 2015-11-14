@@ -9,6 +9,6 @@ module ApplicationHelper
     else
       classes << "#{day_name}-color"
     end
-    classes.join(' ')
+    classes.uniq.join(' ')
   end
 end
