@@ -140,6 +140,13 @@ main {
       color: lighten(yellow, 30%);
     }
 
+    i {
+      padding: 0 0 0 15px;
+      position: relative;
+      display: table-cell;
+      vertical-align: middle;
+    }
+
     .task-body {
       padding: 0 10px 0 15px;
       position: relative;
