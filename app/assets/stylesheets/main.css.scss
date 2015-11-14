@@ -71,6 +71,14 @@ main {
   font-size: 3vw;
   line-height: 3vw;
   cursor: pointer;
+
+  &.active + &.inactive {
+    border-bottom-left-radius: 4px;
+  }
+
+  &.before-active {
+    border-bottom-right-radius: 4px;
+  }
 }
 
 .weekend {
@@ -177,7 +185,7 @@ main {
   .menu-link {
     position: absolute;
     right: 5px;
-    top: 5px;
+    top: 3px;
   }
 
   &.shown {
@@ -194,7 +202,7 @@ main {
     &.shown {
       left: 80vw;
       width: $menu-width;
-      top: $week-height;
+      top: 29px;
     }
 
     li {
