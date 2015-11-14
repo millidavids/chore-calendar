@@ -8,7 +8,7 @@ class Calendar < ActiveRecord::Base
     self.update(date: new_date)
     (old_date..new_date).each do |d|
       unless d.wday == 0 || d.wday == 6
-        current_day_id = (current_day_id + 1) % 6
+        self.current_day_id = (current_day_id + 1) % 6
       end
     end
   end
