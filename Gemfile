@@ -50,3 +50,5 @@ group :development, :test do
 end
 
 gem 'devise', '~> 3.5.2'
+gem 'materialize-sass', '~> 0.97.1'
+gem 'dotenv-rails', '~> 2.0.2'

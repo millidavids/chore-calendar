@@ -1,4 +1,6 @@
 class Calendar < ActiveRecord::Base
+  belongs_to :user
+
   validates :current_day_id, presence: true
   validates :date, presence: true
 
