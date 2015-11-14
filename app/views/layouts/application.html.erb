@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <title>ChoreCalendar</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
   <%= stylesheet_link_tag 'application', media: 'all' %>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body class="<%= params[:controller].split('/').first %> <%= params[:controller].split('/').join('-') %> <%= params[:action] %> <%= Time.now.strftime('%A').downcase %>">
   <%= yield %>
   <%= javascript_include_tag 'application' %>
 </body>

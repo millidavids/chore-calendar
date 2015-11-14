@@ -3,12 +3,43 @@
 html, body {
   width: 100%;
   height: 100%;
-  margin: 0px;
+  margin: 0;
   font-size: 16px;
   font-family: sans-serif;
   font-weight: 700;
   color: rgba(255, 255, 255, .8);
-  // overflow: hidden;
+}
+
+body.home.index {
+  overflow-x: hidden;
+}
+
+body.devise {
+  padding: 2em;
+
+  &.saturday, &.sunday {
+    background-color: $weekend;
+  }
+
+  &.monday {
+    background-color: $monday;
+  }
+
+  &.tuesday {
+    background-color: $tuesday;
+  }
+
+  &.wednesday {
+    background-color: $wednesday;
+  }
+
+  &.thursday {
+    background-color: $thursday;
+  }
+
+  &.friday {
+    background-color: $friday;
+  }
 }
 
 .calendar {
