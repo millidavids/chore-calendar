@@ -47,12 +47,6 @@ class CalendarsController < ApplicationController
 
   # GET /ical.ics
   def ical
-    send_data set_ical, filename: 'chores.ics'
-  end
-
-  private
-
-  def set_ical
     cal = Icalendar::Calendar.new
 
     @calendar.get_week_hash(@current_day).each do |day, person|
@@ -72,8 +66,10 @@ class CalendarsController < ApplicationController
       end
     end
 
-    cal.to_ical
+    send_data cal.to_ical, filename: 'chores.ics'
   end
+
+  private
 
   def set_calendar
     @calendar = current_user.calendar
