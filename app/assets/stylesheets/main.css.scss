@@ -280,18 +280,23 @@ main {
 .modal {
   color: $friday;
   display: block;
-  bottom: 0;
+  bottom: auto;
   left: 0;
   outline: 0;
   overflow-x: hidden;
   overflow-y: auto;
   position: fixed;
   right: 0;
-  top: 0;
-  visibility: hidden;
+  top: -45vh;
   width: 60vw;
   height: 45vh;
   z-index: 1000;
+  -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  -ms-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+  box-shadow: none;
 
   .close-modal-link {
     position: absolute;
@@ -300,7 +305,9 @@ main {
   }
 
   &.shown {
-    visibility: visible;
+    bottom: 0;
+    top: 0;
+    box-shadow: 0 16px 28px 0 rgba(0, 0, 0, 0.22), 0 25px 55px 0 rgba(0, 0, 0, 0.21);
   }
 
   .swap-person-list {
