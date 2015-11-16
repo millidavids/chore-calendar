@@ -11,6 +11,13 @@ Install the [Docker Toolbox](https://www.docker.com/docker-toolbox). In a termin
     docker-compose up
     cp dotenv.development .env
 
+Alternatively, if you don't need the log stream:
+
+    eval $(docker-machine env default --shell=bash)
+    docker-compose build
+    docker-compose start
+    cp dotenv.development .env
+
 Customize .env and set a default username and password for signing in.
 
 Run migrations and seeds:
