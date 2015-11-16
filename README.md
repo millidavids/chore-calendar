@@ -18,3 +18,9 @@ Run migrations and seeds:
     docker-compose run --rm chore bin/rake db:migrate db:seed
 
 Visit [192.168.99.100:3000](http://192.168.99.100:3000).
+
+Changing networks:
+
+If you have changed networks since the last `docker-compose up` or `docker-compose start`:
+
+    docker-machine restart default
