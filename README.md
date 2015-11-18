@@ -24,7 +24,7 @@ Run migrations and seeds:
 
     docker-compose run --rm chore bin/rake db:migrate db:seed
 
-Visit [192.168.99.100:3000](http://192.168.99.100:3000).
+Visit [192.168.99.100:3000](http://192.168.99.100:3000) (assuming that is your docker-machine ip).
 
 Changing networks:
 
