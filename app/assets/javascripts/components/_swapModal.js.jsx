@@ -13,7 +13,9 @@ var SwapModal = React.createClass({
             <PersonList peopleNames={ this.props.peopleNames }
                         currentPerson={ this.props.currentPerson }
                         switchPeople={ this.props.switchPeople }
-                        hideSwitchModal={ this.props.hideSwitchModal }/>
+                        hideSwitchModal={ this.props.hideSwitchModal }
+                        exemptions={ this.props.exemptions }
+                        day={ this.props.day }/>
   	    </div>
   		</div>
     );

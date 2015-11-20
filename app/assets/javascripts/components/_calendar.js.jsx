@@ -90,7 +90,9 @@ var Calendar = React.createClass({
                    currentPerson={ name }
                    peopleNames={ peopleNames }
                    switchPeople={ this.switchPeople }
-                   hideSwitchModal={ this.hideSwitchModal }/>
+                   hideSwitchModal={ this.hideSwitchModal }
+                   exemptions={ this.state.exemptions }
+                   day={ this.state.day }/>
       </div>
     );
   }
