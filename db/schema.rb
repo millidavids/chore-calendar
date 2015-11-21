@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151114203124) do
+ActiveRecord::Schema.define(version: 20151122170214) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20151114203124) do
   add_index "calendars", ["user_id"], name: "index_calendars_on_user_id", using: :btree
 
   create_table "exemptions", force: :cascade do |t|
-    t.integer  "day"
+    t.string   "day"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
     t.integer  "person_id"

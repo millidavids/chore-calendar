@@ -25,4 +25,4 @@ calendar = Calendar.create!(date: Date.today, current_day_id: 1, user: user,
                             person_order: [*1..user.people.count])
 
 puts 'Seeding exemptions'
-Exemption.create!(day: 3, person: sarah, calendar: calendar, recurring: true)
+Exemption.create!(day: 'wednesday', person: sarah, calendar: calendar, recurring: true)
