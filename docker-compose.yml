@@ -15,3 +15,4 @@ bundle:
   image: chorecalendar_chore
   volumes:
     - /bundle
+# Does heroku use this?
