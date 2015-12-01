@@ -4,4 +4,3 @@
   "image": "heroku/ruby",
   "addons": [ "heroku-postgresql" ]
 }
-// Do I need anything special for the bundler container?
