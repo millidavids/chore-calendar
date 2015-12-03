@@ -1,6 +1,0 @@
-{
-  "name": "Chore Calendar",
-  "description": "A chore calendar for CirrusMio.",
-  "image": "heroku/ruby",
-  "addons": [ "heroku-postgresql" ]
-}
