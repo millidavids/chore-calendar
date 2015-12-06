@@ -45,6 +45,30 @@ class CalendarsController < ApplicationController
     end
   end
 
+  # GET /ical.ics
+  def ical
+    cal = Icalendar::Calendar.new
+
+    @calendar.get_week_hash(@current_day).each do |day, person|
+      start = Chronic.parse("#{day} at 8am")
+      stop = Chronic.parse("#{day} at 5pm")
+
+      # tzid = "America/Louisville"
+      # tz = TZInfo::Timezone.get tzid
+      # timezone = tz.ical_timezone start
+      # cal.add_timezone timezone
+
+      cal.event do |e|
+        e.dtstart     = start
+        e.dtend       = stop
+        e.summary     = "It's #{person}'s chore day"
+        e.description = "Remember to do your chores!"
+      end
+    end
+
+    send_data cal.to_ical, filename: 'chores.ics'
+  end
+
   private
 
   def set_calendar
