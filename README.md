@@ -31,7 +31,3 @@ Changing networks:
 If you have changed networks since the last `docker-compose up` or `docker-compose start`:
 
     docker-machine restart default
-
-Deployment:
-
-app.json and Procfile files for Heroku deployment.
