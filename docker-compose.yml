@@ -8,7 +8,7 @@ chore:
   volumes_from:
     - bundle
   ports:
-    - "3000:3000"
+    - "80:80"
   links:
     - db
 bundle:
