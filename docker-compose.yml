@@ -12,6 +12,7 @@ chore:
   links:
     - db
 bundle:
-  image: chorecalendar_chore
+  image: alpine
+  command: "sh -c 'trap exit SIGTERM ; while [ true ] ; do sleep 1 ; done'"
   volumes:
     - /bundle
