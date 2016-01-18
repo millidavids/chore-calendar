@@ -26,6 +26,7 @@ class Calendar < ActiveRecord::Base
   def make_current
     old_date = date
     new_date = Date.today
+    return true if old_date == new_date
     (old_date..new_date).each do |d|
       unless d.wday == 0 || d.wday == 6
         self.current_day_id = (current_day_id + 1) % 6
